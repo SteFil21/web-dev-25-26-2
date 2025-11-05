@@ -137,18 +137,29 @@
             <th>Last Name</th>
             <th>Email</th>
             <th>University</th>
+            <th>Actions</th> <!-- New column -->
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-user>
+    
+        <ng-template pTemplate="body" let-user let-i="rowIndex">
           <tr>
             <td>{{ user.firstName }}</td>
             <td>{{ user.lastName }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.university }}</td>
+            <td>
+              <button
+                pButton
+                type="button"
+                label="Delete"
+                class="p-button-danger"
+                (click)="removeUser(i)"
+              ></button>
+            </td>
           </tr>
         </ng-template>
       </p-table>
-    </div>
+    </div>    
   </div>
 </main>
 
